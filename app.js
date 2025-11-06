@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express = require("express");
 /* const { futimesSync } = require("fs"); */
 const https = require("https");
 const bodyParser = require("body-parser");
+const { Console } = require("console");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,6 +35,8 @@ app.post("/", function (req, res) {
       res.write("<h1>Opis je " + opis + " </h1>");
       const linkIkone = "http://openweathermap.org/img/wn/" + ikona + "@2x.png"
       console.log(linkIkone)
+      process.env.TATA;
+      console.log(process.env.TATA)
       res.write("<img src=" + linkIkone + ">")
       res.send();
     });
